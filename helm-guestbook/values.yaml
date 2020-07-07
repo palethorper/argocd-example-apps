@@ -15,16 +15,17 @@ service:
 
 ingress:
   enabled: true
-  annotations: #{}
+  annotations:
     kubernetes.io/ingress.class: traefik
-    # kubernetes.io/tls-acme: "true"
+    traefik.frontend.rule.type: PathPrefixStrip
+    traefik.ingress.kubernetes.io/frontend-entry-points: https
   path: /gb-helm
   hosts:
     - mci.binchickens.cloud
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - hosts:
+      - mci.binchickens.cloud
+      secretName: default-cert
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
