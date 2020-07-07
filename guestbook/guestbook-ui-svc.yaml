@@ -16,7 +16,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.frontend.rule.type: PathPrefixStrip
     traefik.ingress.kubernetes.io/frontend-entry-points: https
-  name: guestbook2
+  name: guestbook
 spec:
   rules:
   - host: mci.binchickens.cloud
@@ -25,7 +25,7 @@ spec:
       - backend:
           serviceName: guestbook-ui
           servicePort: 80
-        path: /guestbook2
+        path: /guestbook
   tls:
   - hosts:
     - mci.binchickens.cloud
